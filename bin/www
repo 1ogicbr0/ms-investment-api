@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('myexpressapp:server');
+var debug = require('debug')('ms-investment-calculator:server');
 var http = require('http');
 
 /**
