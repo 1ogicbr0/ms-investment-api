@@ -5,9 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   console.log('req.params.query --> ', req.query);
 
-  const compundingPeriod = 18 - req.query.age;
-
-  const pow = Math.pow(1 + parseFloat(req.query.rate), compundingPeriod);
+  const pow = Math.pow(1 + parseFloat(req.query.rate), req.query.period);
 
   let fv = 0;
 
@@ -17,7 +15,7 @@ router.get('/', function(req, res, next) {
   if (parseFloat(req.query.rate)) {
     fv = (parseFloat(req.query.pmt) * (1 + parseFloat(req.query.rate) * parseFloat(req.query.type)) * (1 - pow)/parseFloat(req.query.rate)) - parseFloat(req.query.pv) * pow;
   } else {
-    fv = -1 * (parseFloat(req.query.pv) + parseFloat(req.query.pmt) * compundingPeriod);
+    fv = -1 * (parseFloat(req.query.pv) + parseFloat(req.query.pmt) * req.query.period);
   }
 
   res.status(200).json({futureValue: fv.toFixed(2)});
