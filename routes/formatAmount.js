@@ -5,13 +5,11 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   console.log('req.params.query --> ', req.query);
 
-  const amount = parseFloat(req.query.amount);
+  const formattedAmount1 =  parseFloat(req.query.amount1).toLocaleString('en-ZA', { style: 'currency', currency: 'ZAR' });
+  const formattedAmount2 =  parseFloat(req.query.amount2).toLocaleString('en-ZA', { style: 'currency', currency: 'ZAR' });
+  const formattedAmount3 =  parseFloat(req.query.amount3).toLocaleString('en-ZA', { style: 'currency', currency: 'ZAR' });
 
-  const formattedAmount = amount.toLocaleString('en-ZA', { style: 'currency', currency: 'ZAR' });
-
-  console.log('formattedAmount ---> ', formattedAmount);
-
-  res.status(200).json({formattedAmount: formattedAmount});
+  res.status(200).json({formattedAmount1: formattedAmount1, formattedAmount2: formattedAmount2, formattedAmount3: formattedAmount3});
 });
 
 module.exports = router;
