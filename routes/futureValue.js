@@ -7,7 +7,7 @@ router.use(function(req, res, next) {
   next();
 });
 
-/* GET users listing. */
+/* GET future value calculation. */
 router.get('/', function(req, res, next) {
   console.log('req.params.query --> ', req.query);
 
