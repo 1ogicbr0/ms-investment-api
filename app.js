@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var fvRouter = require('./routes/futureValue');
 var formatRouter = require('./routes/formatAmount');
+var calculateRouter = require('./routes/calculate');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/futureValue', fvRouter);
 app.use('/api/formatAmount', formatRouter);
+app.use('/api/calculate', calculateRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
